@@ -8,13 +8,16 @@
         <title>RayandRey blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'blog/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Audiowide|Cabin" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}">
     </head>
     <body>
         <div class="wrapper">
             <div class="page-header">
-                    <h1><a href="#">Ray&Rey Blog</a></h1>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                    {% endif %}
+                    <h1><a href="/">Ray&Rey Blog</a></h1>
                 </div>
                 <div class="content container">
                     <div class="row">
